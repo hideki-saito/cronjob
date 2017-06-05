@@ -1,0 +1,8 @@
+numpy==1.12.1
+pandas==0.20.2
+pkg-resources==0.0.0
+python-crontab==2.2.2
+python-dateutil==2.6.0
+pytz==2017.2
+six==1.10.0
+xlwt==1.2.0
