@@ -67,7 +67,7 @@ def main():
             df.to_excel(writer, csv_sheet[csvName], startrow=len(excel_df)+1, header=False, columns=excel_columns, index=False)
             writer.save()
 
-    # move_files(csvNames, source_directory, destination_directory)
+    move_files(csvNames, source_directory, destination_directory)
 
 if __name__ == "__main__":
     source_directory = source_directory
