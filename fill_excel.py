@@ -42,7 +42,8 @@ def main():
     for group in grouped:
         excelpath = os.path.join(source_directory, "File" + re.search(r'\d+', list(group[1])[0]).group() + ".xlsx")
 
-        copyfile(os.path.join(current_directory, template), excelpath)
+        if not os.path.exists(excelpath):
+            copyfile(os.path.join(current_directory, template), excelpath)
 
         book = load_workbook(excelpath)
         writer = ExcelWriter(excelpath, engine='openpyxl')
@@ -55,7 +56,7 @@ def main():
             excel_columns = list(excel_df.columns)
 
             try:
-                csv_df = pd.read_csv(os.path.join(source_directory, a_csv))
+                csv_df = pd.read_csv(os.path.join(source_directory, a_csv), dtype=str)
                 csv_columns = pd.Series(list(csv_df.columns)).apply(similiar_in_list, list=excel_columns)
                 csv_df.columns = csv_columns
             except:
@@ -66,7 +67,7 @@ def main():
             df.to_excel(writer, csv_sheet[csvName], startrow=len(excel_df)+1, header=False, columns=excel_columns, index=False)
             writer.save()
 
-    move_files(csvNames, source_directory, destination_directory)
+    # move_files(csvNames, source_directory, destination_directory)
 
 if __name__ == "__main__":
     source_directory = source_directory
