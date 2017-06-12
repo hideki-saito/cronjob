@@ -1,6 +1,6 @@
 How to run?
    - configure the setting in config.py
-   - install dependencies. pip install -r requirements.txt
-   - add cron job to the user system. python tasks.py
-   - check cron jobs. python check_task.py
+   - install dependencies. 'pip install -r requirements.txt'
+   - add cron job to the user system. 'python tasks.py'
+   - check cron jobs. 'python check_task.py'
    - check logs of cron job in task.log
